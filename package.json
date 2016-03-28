@@ -1,19 +1,13 @@
 {
-  "name": "react-native-ui",
+  "name": "react-native-ui-framework",
   "version": "1.0.0",
   "description": "custom react native UI framework",
-  "main": "./src/index.js",
+  "main": "index.js",
   "directories": {
     "example": "examples"
   },
-  "dependencies": {
-    "react": "^0.14.7",
-    "react-native": "^0.22.2"
-  },
-  "devDependencies": {
-    "react": "^0.14.7",
-    "react-native": "^0.22.2"
-  },
+  "dependencies": {},
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/S-PRO/react-native-framework.git"
   },
-  "author": "iizraylevich",
+  "author": "s-pro",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/S-PRO/react-native-framework/issues"
