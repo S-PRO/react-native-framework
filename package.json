@@ -1,0 +1,30 @@
+{
+  "name": "react-native-framework",
+  "version": "1.0.0",
+  "description": "custom react native framework",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^0.14.7",
+    "react-native": "^0.22.2"
+  },
+  "devDependencies": {
+    "react": "^0.14.7",
+    "react-native": "^0.22.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vgalkin/react-native-framework.git"
+  },
+  "keywords": [
+    "react-native-framework"
+  ],
+  "author": "iizraylevich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vgalkin/react-native-framework/issues"
+  },
+  "homepage": "https://github.com/vgalkin/react-native-framework#readme"
+}
