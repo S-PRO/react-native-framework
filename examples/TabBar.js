@@ -7,27 +7,27 @@ export default class TestTabBar extends Component{
     constructor(props){
         super(props);
         this.state = {
-            currentTab:1
+            page:'FIRST'
         };
     }
 
-    changeState(index){
+    onSelect(name){
         this.setState({
-            currentTab:index
+            page:name
         });
     }
 
     render(){
         return(
             <View>
-                <Text>
-                    Chosen tab is: {this.state.currentTab}
-                </Text>
-               <TabBar>
-                   <Text>First</Text>
-                   <Text>Second</Text>
-                   <Text>Third</Text>
-               </TabBar>
+                <TabBar selected={this.state.page} style={{backgroundColor:'white'}}
+                        selectedStyle={{color:'red'}} onSelect={el=>this.onSelect(el.props.name)}>
+                    <Text name="FIRST">1</Text>
+                    <Text name="SECOND">2</Text>
+                    <Text name="THIRD">3</Text>
+                    <Text name="FOURTH">4</Text>
+                    <Text name="FIFTH">5</Text>
+                </TabBar>
             </View>
         )
     }

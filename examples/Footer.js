@@ -10,7 +10,7 @@ export default class TestFooter extends Component{
     render(){
         return(
             <View>
-                <Footer styles={styles}>
+                <Footer styles={styles.footer}>
                     <Text>Custom footer it is</Text>
                 </Footer>
 
@@ -20,5 +20,7 @@ export default class TestFooter extends Component{
 }
 
 const styles = StyleSheet.create({
-    backgroundColor: 'red'
+    footer:{
+        backgroundColor:'red'
+    }
 });
