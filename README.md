@@ -29,30 +29,30 @@ const SideMenu = require('react-native-side-menu');
 class ContentView extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
+      &lt;View style={styles.container}&gt
+        &lt;Text style={styles.welcome}&gt
           Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
+        &lt;/Text&gt
+        &lt;Text style={styles.instructions}&gt
           To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
+        &lt;/Text&gt
+        &lt;Text style={styles.instructions}&gt
           Press Cmd+R to reload,{'\n'}
           Cmd+Control+Z for dev menu
-        </Text>
-      </View>
+        &lt;/Text&gt
+      &lt;/View&gt
     );
   }
 }
 
 class Application extends React.Component {
   render() {
-    const menu = <Menu navigator={navigator}/>;
+    const menu = &lt;Menu navigator={navigator}/>;
 
     return (
-      <SideMenu menu={menu}>
-        <ContentView/>
-      </SideMenu>
+      &lt;SideMenu menu={menu}&gt
+        &lt;ContentView/&gt
+      &lt;/SideMenu&gt
     );
   }
 }
