@@ -4,9 +4,6 @@ import Footer from 'react-native-framework';
 
 
 export default class TestFooter extends Component{
-    constructor(props){
-        super(props);
-    }
     render(){
         return(
             <View>

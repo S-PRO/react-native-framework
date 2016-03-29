@@ -4,9 +4,6 @@ import Header from 'react-native-framework';
 
 
 export default class TestHeader extends Component{
-    constructor(props){
-        super(props);
-    }
     render(){
         return(
             <View>

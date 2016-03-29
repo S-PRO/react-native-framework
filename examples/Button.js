@@ -4,10 +4,6 @@ import Button from 'react-native-framework';
 
 
 export default class TestButton extends Component{
-    constructor(props){
-        super(props);
-    }
-
     render(){
         return(
             <View>
