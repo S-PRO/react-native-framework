@@ -2,8 +2,9 @@
 
 ##  Sidebar 
 https://github.com/react-native-fellowship/react-native-side-menu
-<pre>
 example:
+
+<pre>
 const SideMenu = require('react-native-side-menu');
 
 class ContentView extends React.Component {
