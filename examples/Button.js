@@ -30,7 +30,7 @@ export default class TestButton extends Component{
                 <ButtonLight>Light</ButtonLight>
                 <ButtonPositive>Positive</ButtonPositive>
                 <ButtonRoyal>Royal</ButtonRoyal>
-                <Button highlightStyles={{backgroundColor:'grey'}}>Button with custom background</Button>
+                <Button highlightStyles={{backgroundColor:'grey'}}>Button with only text</Button>
             </View>
         )
     }
