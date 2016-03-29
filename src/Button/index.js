@@ -2,16 +2,27 @@
 
 import React, { Component, StyleSheet, Text, TouchableHighlight} from 'react-native';
 
-export default class Button extends Component{
-    constructor(props){
-        super(props);
-        console.log("props")
-        console.log(props)
+class Button extends Component{
+    setBackground(bgColor) {
+        this.setState({backgroundColor: bgColor});
     }
+
+    getBackground() {
+        return this.state ? this.state.backgroundColor: styles.buttonStable;
+    }
+
+    setColor(color) {
+        this.setState({color: color});
+    }
+
+    getColor() {
+        return this.state ? this.state.color: styles.colorDark;
+    }
+
     renderChild(){
         if(typeof this.props.children === 'string'){
             return(
-                <Text style={[styles.text, this.props.textStyles]}>{this.props.children}</Text>
+                <Text style={[this.getColor(), styles.text, this.props.textStyles]}>{this.props.children}</Text>
             )
         }
         else if(typeof this.props.children === 'object'){
@@ -20,10 +31,11 @@ export default class Button extends Component{
             )
         }
     }
+
     render(){
         return(
             <TouchableHighlight underlayColor={this.props.underlayColor ? this.props.underlayColor : underlayColor}
-                                style={[styles.highlight, this.props.highlightStyles, this.props.disabled ? styles.buttonDisabled : false]}
+                                style={[this.getBackground(), styles.highlight, this.props.highlightStyles, this.props.disabled ? styles.buttonDisabled : false]}
                                 onPress={this.props.disabled ? null : this.props.onClick}>
                 {this.renderChild(this.props)}
             </TouchableHighlight>
@@ -31,10 +43,105 @@ export default class Button extends Component{
     }
 }
 
+class ButtonStable extends Button {
+    componentDidMount(){
+        this.setColor(styles.colorDark);
+        this.setBackground(styles.buttonStable);
+    }
+}
+
+class ButtonPositive extends Button {
+    componentDidMount(){
+        this.setColor(styles.colorWhite);
+        this.setBackground(styles.buttonPositive);
+    }
+}
+
+class ButtonCalm extends Button {
+    componentDidMount(){
+        this.setColor(styles.colorWhite);
+        this.setBackground(styles.buttonCalm);
+    }
+}
+
+class ButtonBalanced extends Button {
+    componentDidMount(){
+        this.setColor(styles.colorWhite);
+        this.setBackground(styles.buttonBalanced);
+    }
+}
+
+class ButtonEnergized extends Button {
+    componentDidMount(){
+        this.setColor(styles.colorWhite);
+        this.setBackground(styles.buttonEnergized);
+    }
+}
+
+class ButtonAssertive extends Button {
+    componentDidMount(){
+        this.setColor(styles.colorWhite);
+        this.setBackground(styles.buttonAssertive);
+    }
+}
+
+class ButtonRoyal extends Button {
+    componentDidMount(){
+        this.setColor(styles.colorWhite);
+        this.setBackground(styles.buttonRoyal);
+    }
+}
+
+class ButtonDark extends Button {
+    componentDidMount(){
+        this.setColor(styles.colorWhite);
+        this.setBackground(styles.buttonDark);
+    }
+}
+
+class ButtonLight extends Button {
+    componentDidMount(){
+        this.setColor(styles.colorDark);
+        this.setBackground(styles.buttonLight);
+    }
+}
 
 const underlayColor = '#00A4DC';
 
 var styles = StyleSheet.create({
+    colorWhite: {
+        color: '#fff'
+    },
+    colorDark: {
+        color: '#444'
+    },
+    buttonStable: {
+        backgroundColor: '#f8f8f8'
+    },
+    buttonPositive: {
+        backgroundColor: '#387ef5'
+    },
+    buttonCalm: {
+        backgroundColor: '#11c1f3'
+    },
+    buttonBalanced: {
+        backgroundColor: '#33cd5f'
+    },
+    buttonEnergized: {
+        backgroundColor: '#ffc900'
+    },
+    buttonAssertive: {
+        backgroundColor: '#ef473a'
+    },
+    buttonRoyal: {
+        backgroundColor: '#886aea'
+    },
+    buttonDark: {
+        backgroundColor: '#444444'
+    },
+    buttonLight: {
+        backgroundColor: 'white'
+    },
     highlight:{
         flexDirection:'row',
         flex:1,
@@ -44,11 +151,9 @@ var styles = StyleSheet.create({
         paddingTop:10,
         paddingBottom:10,
         paddingLeft:20,
-        paddingRight:20,
-        backgroundColor:'#00A4DC'
+        paddingRight:20
     },
     text:{
-        color:'#FFFFFF',
         fontSize:16,
         fontWeight:'700',
         textAlign:'center'
@@ -58,3 +163,15 @@ var styles = StyleSheet.create({
     }
 });
 
+export {
+    Button,
+    ButtonStable,
+    ButtonPositive,
+    ButtonCalm,
+    ButtonBalanced,
+    ButtonEnergized,
+    ButtonAssertive,
+    ButtonRoyal,
+    ButtonDark,
+    ButtonLight
+};
