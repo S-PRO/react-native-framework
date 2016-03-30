@@ -10,8 +10,15 @@ class Button extends Component{
         super(props);
     }
 
+    componentWillMount(){
+        console.log('componentWillMount');
+        this.getUnderlayColor();
+        this.getBackground();
+        this.getColor();
+    }
+
     getUnderlayColor(){
-        if(this.props.underlayColor){
+        if((this.props) && this.props.underlayColor){
             return this.props.underlayColor;
         }
         else if((this.state) && this.state.underlayColor){
@@ -59,7 +66,8 @@ class ButtonStable extends Button {
         super(props);
         this.state = {
             backgroundColor:styles.buttonStable,
-            color:{color:'red', fontSize:20}
+            color:styles.colorDark,
+            underlayColor:underlayColor.buttonStable
         };
     }
 }
