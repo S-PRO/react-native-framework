@@ -209,10 +209,10 @@ var styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     highlight:{
-        flexDirection:'row',
         flex:1,
         alignItems:'center',
         justifyContent:'center',
+        overflow:'hidden',
         borderWidth:1,
         borderRadius:0.5,
         paddingTop:10,
