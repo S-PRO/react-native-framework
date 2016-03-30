@@ -10,13 +10,6 @@ class Button extends Component{
         super(props);
     }
 
-    componentWillMount(){
-        console.log('componentWillMount');
-        this.getUnderlayColor();
-        this.getBackground();
-        this.getColor();
-    }
-
     getUnderlayColor(){
         if((this.props) && this.props.underlayColor){
             return this.props.underlayColor;
