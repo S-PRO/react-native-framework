@@ -16,7 +16,6 @@ export default class ButtonBar extends Component{
     }
 }
 
-
 var styles = StyleSheet.create({
     buttonBarContainer: {
         flexDirection: 'row',
