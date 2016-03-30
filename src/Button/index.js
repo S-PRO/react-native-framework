@@ -214,6 +214,8 @@ var styles = StyleSheet.create({
         justifyContent:'center',
         overflow:'hidden',
         borderWidth:1,
+        borderRightWidth:0.5,
+        borderLeftWidth:0.5,
         borderRadius:0.5,
         paddingTop:10,
         paddingBottom:10,
