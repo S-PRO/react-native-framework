@@ -1,18 +1,29 @@
 'use strict';
 
-import React, { Component, StyleSheet, Text, TouchableHighlight} from 'react-native';
+import React, { Component, StyleSheet, Text, TouchableHighlight, PropTypes} from 'react-native';
 
 class Button extends Component{
-    setBackground(bgColor) {
-        this.setState({backgroundColor: bgColor});
+    static propTypes = {
+        children:PropTypes.string.isRequired
+    };
+    constructor(props){
+        super(props);
+    }
+
+    getUnderlayColor(){
+        if(this.props.underlayColor){
+            return this.props.underlayColor;
+        }
+        else if((this.state) && this.state.underlayColor){
+            return this.state.underlayColor;
+        }
+        else{
+            return underlayColor.buttonStable;
+        }
     }
 
     getBackground() {
         return this.state ? this.state.backgroundColor: styles.buttonStable;
-    }
-
-    setColor(color) {
-        this.setState({color: color});
     }
 
     getColor() {
@@ -22,7 +33,7 @@ class Button extends Component{
     renderChild(){
         if(typeof this.props.children === 'string'){
             return(
-                <Text style={[this.getColor(), styles.text, this.props.textStyles]}>{this.props.children}</Text>
+                <Text style={[ styles.text, this.props.textStyles, this.getColor()]}>{this.props.children}</Text>
             )
         }
         else if(typeof this.props.children === 'object'){
@@ -34,7 +45,7 @@ class Button extends Component{
 
     render(){
         return(
-            <TouchableHighlight underlayColor={this.props.underlayColor ? this.props.underlayColor : underlayColor}
+            <TouchableHighlight underlayColor={this.getUnderlayColor()}
                                 style={[this.getBackground(), styles.highlight, this.props.highlightStyles, this.props.disabled ? styles.buttonDisabled : false]}
                                 onPress={this.props.disabled ? null : this.props.onClick}>
                 {this.renderChild(this.props)}
@@ -44,69 +55,114 @@ class Button extends Component{
 }
 
 class ButtonStable extends Button {
-    componentDidMount(){
-        this.setColor(styles.colorDark);
-        this.setBackground(styles.buttonStable);
+    constructor(props){
+        super(props);
+        this.state = {
+            backgroundColor:styles.buttonStable,
+            color:{color:'red', fontSize:20}
+        };
     }
 }
 
 class ButtonPositive extends Button {
-    componentDidMount(){
-        this.setColor(styles.colorWhite);
-        this.setBackground(styles.buttonPositive);
+    constructor(props){
+        super(props);
+        this.state = {
+            backgroundColor: styles.buttonPositive,
+            color:styles.colorWhite,
+            underlayColor:underlayColor.buttonPositive
+        };
     }
 }
 
 class ButtonCalm extends Button {
-    componentDidMount(){
-        this.setColor(styles.colorWhite);
-        this.setBackground(styles.buttonCalm);
+    constructor(props){
+        super(props);
+        this.state = {
+            backgroundColor: styles.buttonCalm,
+            color:styles.colorWhite,
+            underlayColor:underlayColor.buttonCalm
+        };
     }
 }
 
 class ButtonBalanced extends Button {
-    componentDidMount(){
-        this.setColor(styles.colorWhite);
-        this.setBackground(styles.buttonBalanced);
+    constructor(props){
+        super(props);
+        this.state = {
+            backgroundColor: styles.buttonBalanced,
+            color:styles.colorWhite,
+            underlayColor:underlayColor.buttonBalanced
+        };
     }
 }
 
 class ButtonEnergized extends Button {
-    componentDidMount(){
-        this.setColor(styles.colorWhite);
-        this.setBackground(styles.buttonEnergized);
+    constructor(props){
+        super(props);
+        this.state = {
+            backgroundColor: styles.buttonEnergized,
+            color:styles.colorWhite,
+            underlayColor:underlayColor.buttonEnergized
+        };
     }
 }
 
 class ButtonAssertive extends Button {
-    componentDidMount(){
-        this.setColor(styles.colorWhite);
-        this.setBackground(styles.buttonAssertive);
+    constructor(props){
+        super(props);
+        this.state = {
+            backgroundColor: styles.buttonAssertive,
+            color:styles.colorWhite,
+            underlayColor:underlayColor.buttonAssertive
+        };
     }
 }
 
 class ButtonRoyal extends Button {
-    componentDidMount(){
-        this.setColor(styles.colorWhite);
-        this.setBackground(styles.buttonRoyal);
+    constructor(props){
+        super(props);
+        this.state = {
+            backgroundColor: styles.buttonRoyal,
+            color:styles.colorWhite,
+            underlayColor:underlayColor.buttonRoyal
+        };
     }
 }
 
 class ButtonDark extends Button {
-    componentDidMount(){
-        this.setColor(styles.colorWhite);
-        this.setBackground(styles.buttonDark);
+    constructor(props){
+        super(props);
+        this.state = {
+            backgroundColor: styles.buttonDark,
+            color:styles.colorWhite,
+            underlayColor:underlayColor.buttonDark
+        };
     }
 }
 
 class ButtonLight extends Button {
-    componentDidMount(){
-        this.setColor(styles.colorDark);
-        this.setBackground(styles.buttonLight);
+    constructor(props){
+        super(props);
+        this.state = {
+            backgroundColor: styles.buttonLight,
+            color:styles.colorDark,
+            underlayColor:underlayColor.buttonLight
+        };
     }
 }
 
-const underlayColor = '#00A4DC';
+const underlayColor = {
+    buttonStable:'#e5e5e5',
+    buttonPositive:'#0c60ee',
+    buttonCalm:'#0a9dc7',
+    buttonBalanced:'#28a54c',
+    buttonEnergized:'#e6b500',
+    buttonAssertive:'#e42112',
+    buttonRoyal:'#e42112',
+    buttonDark:'#262626',
+    buttonLight:'#fafafa'
+};
 
 var styles = StyleSheet.create({
     colorWhite: {
@@ -116,30 +172,39 @@ var styles = StyleSheet.create({
         color: '#444'
     },
     buttonStable: {
-        backgroundColor: '#f8f8f8'
+        backgroundColor: '#f8f8f8',
+        borderColor:'#b2b2b2'
     },
     buttonPositive: {
+        borderColor:'#0c60ee',
         backgroundColor: '#387ef5'
     },
     buttonCalm: {
+        borderColor:'#0a9dc7',
         backgroundColor: '#11c1f3'
     },
     buttonBalanced: {
+        borderColor:'#28a54c',
         backgroundColor: '#33cd5f'
     },
     buttonEnergized: {
+        borderColor:'#e6b500',
         backgroundColor: '#ffc900'
     },
     buttonAssertive: {
-        backgroundColor: '#ef473a'
+        backgroundColor: '#ef473a',
+        borderColor:'#e42112'
     },
     buttonRoyal: {
+        borderColor:'#6b46e5',
         backgroundColor: '#886aea'
     },
     buttonDark: {
+        borderColor:'#000',
         backgroundColor: '#444444'
     },
     buttonLight: {
+        borderColor:'#ccc',
         backgroundColor: 'white'
     },
     highlight:{
@@ -147,11 +212,13 @@ var styles = StyleSheet.create({
         flex:1,
         alignItems:'center',
         justifyContent:'center',
-        borderRadius:5,
+        borderWidth:1,
+        borderRadius:0.5,
         paddingTop:10,
         paddingBottom:10,
         paddingLeft:20,
-        paddingRight:20
+        paddingRight:20,
+        marginBottom:10
     },
     text:{
         fontSize:16,

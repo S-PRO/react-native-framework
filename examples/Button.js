@@ -8,7 +8,7 @@ import {ButtonStable,
     ButtonEnergized,
     ButtonLight,
     ButtonPositive,
-    ButtonRoyal} from 'react-native-framework'
+    ButtonRoyal} from '../src/Button/index'
 
 
 export default class TestButton extends Component{
@@ -19,9 +19,7 @@ export default class TestButton extends Component{
     render(){
         return(
             <View>
-                <ButtonStable>
-                    <Text>Button Stable</Text>
-                </ButtonStable>
+                <ButtonStable>Button Stable</ButtonStable>
                 <ButtonAssertive>Assertive</ButtonAssertive>
                 <ButtonBalanced>Balanced</ButtonBalanced>
                 <ButtonCalm>Calm</ButtonCalm>
