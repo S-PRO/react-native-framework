@@ -159,7 +159,7 @@ const underlayColor = {
     buttonBalanced:'#28a54c',
     buttonEnergized:'#e6b500',
     buttonAssertive:'#e42112',
-    buttonRoyal:'#e42112',
+    buttonRoyal:'#6b46e5',
     buttonDark:'#262626',
     buttonLight:'#fafafa'
 };
