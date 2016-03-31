@@ -37,5 +37,15 @@ class ReactNativeUI extends Component {
     }
 }
 </pre>
+####Options
+<ul>
+    <li> checked : initial state of checkbox. Default: false </li>
+    <li> onPress : function that will be invoked by pressing to checkbox with checked property as argument.  </li>
+    <li> size : Diameter of circle. Minimum: 15, default: 17 </li>
+    <li> outerColor : Color of outer circle. Default: #387ef5 </li>
+    <li> markColor : Color of check mark. Default: #fff </li>
+    <li> borderColor : Color of border. Default: #ddd </li>
+    <li> labelPosition : Label rendering position. Default: right, may be 'right' or 'left' </li>
+</ul>
 ####preview:
 ![]('CheckBox.png')
