@@ -61,7 +61,7 @@ class Application extends React.Component {
 
 
 
-## Header
+## Header component
 
 example:
 
@@ -69,10 +69,7 @@ example:
 
 ```javascript
 
-import React, { Component, StyleSheet, View, Text } from 'react-native';
-
 import Header from 'react-native-framework';
-
 
 export default class TestHeader extends Component{
     render(){
@@ -81,7 +78,6 @@ export default class TestHeader extends Component{
                 <Header styles={styles.header}>
                     <Text>Welcome to React Native</Text>
                 </Header>
-
             </View>
         )
     }
@@ -89,7 +85,98 @@ export default class TestHeader extends Component{
 
 const styles = StyleSheet.create({
     header:{
-        backgroundColor:'red'
+        backgroundColor:'#444'
     }
 });
 ```
+
+### API
+
+    * styles - custom user styles for View component
+    
+
+## Footer component
+
+example:
+
+![Alt](https://github.com/S-PRO/react-native-framework/blob/develop/src/Footer/Footer.png)
+
+```javascript
+
+import Footer from 'react-native-framework';
+
+export default class TestFooter extends Component{
+    render(){
+        return(
+            <View>
+                <Footer styles={styles.footer}>
+                    <Text>Welcome to React Native</Text>
+                </Footer>
+
+            </View>
+        )
+    }
+}
+
+const styles = StyleSheet.create({
+    footer:{
+        backgroundColor:'#444'
+    }
+});
+```
+
+### API
+
+    * styles - custom user styles for View component
+
+
+## Form component
+
+example:
+
+![Alt](https://github.com/S-PRO/react-native-framework/blob/feature/screenshots_for_not_screened_components/src/Form/form.png)
+
+```javascript
+
+import { Form, FormInput} from '../src/Form'
+
+
+export default class TestForm extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            firstname:'John',
+            lastname:'Test',
+            email:'john@testmail.com'
+        }
+    }
+    render(){
+        return(
+            <View style={{marginTop:100, marginLeft:10, marginRight:10}}>
+                <Form ref="form">
+                    <FormInput
+                        required={true}
+                        value={this.state.firstname}
+                        textChanged={this.textChanged.bind(this)}
+                        key="firstname"/>
+                    <FormInput
+                        required={true}
+                        value={this.state.lastname}
+                        textChanged={this.textChanged.bind(this)}
+                        key="lastname"/>
+                    <FormInput
+                        required={true}
+                        value={this.state.email}
+                        textChanged={this.textChanged.bind(this)}
+                        key="email"/>
+
+                </Form>
+            </View>
+        )
+    }
+}
+```
+
+### API
+
+    * styles - custom user styles for View component
