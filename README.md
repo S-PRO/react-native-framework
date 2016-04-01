@@ -381,3 +381,33 @@ export default class TestButton extends Component{
     * `underlayColor` - color when button pressed,
     * `textStyles` - custom user styles for text inside button (only <Text> component styling),
     * `highlightStyles` - custom user style for button container (only <TouchableHighlight> component styling);
+
+
+## ImageSlider component
+
+![Alt](https://github.com/S-PRO/react-native-framework/blob/develop/src/Button/Button.png)
+
+#### example:
+```javascript
+import ImageSlider from '../src/ImageSlider';
+
+class TestImageSlider extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            images: []
+        }
+    }
+    render(){
+        return(
+            <View style={{marginTop:200}}>
+                <ImageSlider images={this.state.images} />
+            </View>
+        )
+    }
+}
+```
+
+#### API:
+    * `images` - array of image uri's to be display     
+    
