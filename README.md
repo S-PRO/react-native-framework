@@ -3,7 +3,7 @@
 ## Icons
 https://github.com/oblador/react-native-vector-icons
 
-example:
+#### example:
 
 <pre>
 var Icon = require('react-native-vector-icons/FontAwesome');
@@ -21,7 +21,7 @@ render() {
 https://github.com/react-native-fellowship/react-native-side-menu
 
 
-example:
+#### example:
 
 <pre>
 const SideMenu = require('react-native-side-menu');
@@ -63,12 +63,11 @@ class Application extends React.Component {
 
 ## Header component
 
-example:
-
 ![Alt](https://github.com/S-PRO/react-native-framework/blob/develop/src/Header/Header.png)
 
-```javascript
+#### example:
 
+```javascript
 import Header from 'react-native-framework';
 
 export default class TestHeader extends Component{
@@ -90,19 +89,18 @@ const styles = StyleSheet.create({
 });
 ```
 
-### API
+#### API
 
-    * styles - custom user styles for View component
+    * `styles` - custom user styles for View component
     
 
 ## Footer component
 
-example:
-
 ![Alt](https://github.com/S-PRO/react-native-framework/blob/develop/src/Footer/Footer.png)
 
-```javascript
+#### example:
 
+```javascript
 import Footer from 'react-native-framework';
 
 export default class TestFooter extends Component{
@@ -125,21 +123,19 @@ const styles = StyleSheet.create({
 });
 ```
 
-### API
+#### API
 
-    * styles - custom user styles for View component
+    * `styles` - custom user styles for View component
 
 
 ## Form component
 
-example:
-
 ![Alt](https://github.com/S-PRO/react-native-framework/blob/feature/screenshots_for_not_screened_components/src/Form/form.png)
 
+#### example:
+
 ```javascript
-
 import { Form, FormInput} from '../src/Form'
-
 
 export default class TestForm extends Component{
     constructor(props){
@@ -177,6 +173,164 @@ export default class TestForm extends Component{
 }
 ```
 
-### API
+#### API:
+    * 'FormInput' - custom TextInput wrapped in styles and highlight (validation in future)
+    
+    
+## FormInput component
 
-    * styles - custom user styles for View component
+
+#### example:
+
+```javascript
+import { Form, FormInput } from 'react-native-framework';
+
+class TestFormInput extends Component{
+    render(){
+        return(
+            <View>
+                <Form>
+                    <FormInput
+                        required={true}
+                        value={this.state.lastname}
+                        textChanged={this.textChanged.bind(this)}
+                        key="lastname"/>
+                </Form>
+            </View>
+        )
+    }
+}
+
+```
+
+#### API:
+    * 'value' - value for component,
+    * 'textChanged' - method to update value in parent component,
+    * `styles` - custom user styles for TextInput component,
+    * 'highlight' - custom onFocus highlight style - borderColor, backgroundColor;
+    
+## NotificationBox component
+
+
+![Alt](https://github.com/S-PRO/react-native-framework/blob/feature/screenshots_for_not_screened_components/src/NotificationBox/NotificationBox.png)
+
+#### example:
+
+```javascript
+import { SystemMessage, SuccessMessage, ErrorMessage} from '../src/NotificationBox';
+
+export default class TestNotificationBox extends Component{
+    render(){
+        return(
+            <View style={{marginTop:100, marginLeft:10, marginRight:10}}>
+                <SystemMessage message="System message box"/>
+                <SuccessMessage message="Success message box"/>
+                <ErrorMessage message="Error message box"/>
+            </View>
+        )
+    }
+}
+```
+
+#### API:
+    * `success` - bool value,
+    * `failure` - bool value,
+    * `message` - message to be displayed,
+    * `SuccessMessage` - custom component with set styles,
+    * `SystemMessage` - custom component with set styles,
+    * `ErrorMessage` - custom component with set styles,
+    
+    
+## Select component
+
+![Alt](https://github.com/S-PRO/react-native-framework/blob/develop/src/Select/select.png)
+
+#### example:
+
+```javascript
+import Select from 'react-native-framework';
+
+export default class TestSelect extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            chosenItem:1,
+            listOfProps:[1,2,3,4,5,6,7,8,9]
+        };
+    }
+    update(){
+        console.log('updated')
+    }
+    render(){
+        return(
+            <View style={styles.container}>
+                <Select value={this.state.chosenItem} update={this.update.bind(this)} options={this.state.listOfProps} />
+            </View>
+        )
+    }
+}
+
+const styles = StyleSheet.create({
+    container:{
+        marginTop:50
+    }
+});
+```
+
+#### API:
+    * `options` - list of options to display,
+    * `value` - current value,
+    * `update` - update callback;
+
+
+## TabBar component:
+![Alt](https://github.com/S-PRO/react-native-framework/blob/develop/src/TabBar/Tabbar%201.png)
+![Alt](https://github.com/S-PRO/react-native-framework/blob/develop/src/TabBar/Tabbar2.png)
+
+#### example:
+
+```javascript
+import TabBar from 'react-native-framework';
+
+
+export default class TestTabBar extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            page:'FIRST'
+        };
+    }
+
+    onSelect(name){
+        this.setState({
+            page:name
+        });
+    }
+
+    render(){
+        return(
+            <View>
+                <TabBar selected={this.state.page} style={{backgroundColor:'white'}}
+                        selectedStyle={{color:'red'}} onSelect={el=>this.onSelect(el.props.name)}>
+                    <Text name="FIRST">1</Text>
+                    <Text name="SECOND">2</Text>
+                    <Text name="THIRD">3</Text>
+                    <Text name="FOURTH">4</Text>
+                    <Text name="FIFTH">5</Text>
+                </TabBar>
+            </View>
+        )
+    }
+}
+
+const styles = StyleSheet.create({
+    backgroundColor:'red'
+});
+
+```
+
+#### API:
+    * `selected` - current selected value,
+    * `onSelect` - callback when changes selection,
+    * `selectedStyle` - selected tab styling,
+    * `locked` - disable certain tab
