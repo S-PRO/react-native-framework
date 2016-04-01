@@ -41,5 +41,15 @@ class ReactNativeUI extends Component {
     }
 }
 ```
+
+####options:
+<ul>
+    <li>textSize</li>
+    <li>textColor</li>
+    <li>noteColor</li>
+    <li>backgroundColor</li>
+    <li>borderColor</li>
+</ul>
+
 ####preview:
 ![](ButtonBar.png)
