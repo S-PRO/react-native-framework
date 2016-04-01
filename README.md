@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
 
 ## Form component
 
-![Alt](https://github.com/S-PRO/react-native-framework/blob/feature/screenshots_for_not_screened_components/src/Form/form.png)
+![Alt](https://github.com/S-PRO/react-native-framework/blob/develop/src/Form/form.png)
 
 #### example:
 
@@ -212,7 +212,7 @@ class TestFormInput extends Component{
 ## NotificationBox component
 
 
-![Alt](https://github.com/S-PRO/react-native-framework/blob/feature/screenshots_for_not_screened_components/src/NotificationBox/NotificationBox.png)
+![Alt](https://github.com/S-PRO/react-native-framework/blob/develop/src/NotificationBox/NotificationBox.png)
 
 #### example:
 
@@ -385,7 +385,7 @@ export default class TestButton extends Component{
 
 ## ImageSlider component
 
-![Alt](https://github.com/S-PRO/react-native-framework/blob/develop/src/Button/Button.png)
+![Alt](https://github.com/S-PRO/react-native-framework/blob/develop/src/ImageSlider/ImageSlider.png)
 
 #### example:
 ```javascript
