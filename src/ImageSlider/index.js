@@ -1,9 +1,8 @@
 'use strict';
 
-import React, { Component, StyleSheet, Image, Animated, Easing} from 'react-native';
-import Dimensions from 'Dimensions';
-import ViewPager from 'react-native-viewpager';
+import React, { Component, StyleSheet, Image, Animated, Easing, Dimensions} from 'react-native';
 
+import ViewPager from 'react-native-viewpager';
 
 const {width} = Dimensions.get('window');
 
