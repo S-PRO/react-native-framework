@@ -3,7 +3,7 @@
 ## How to install:
 
 ```shell
-npm install react-native-framework --save
+npm i react-native-ui-framework --save
 ```
 
 ***
