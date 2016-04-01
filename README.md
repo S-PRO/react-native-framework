@@ -334,3 +334,50 @@ const styles = StyleSheet.create({
     * `onSelect` - callback when changes selection,
     * `selectedStyle` - selected tab styling,
     * `locked` - disable certain tab
+    
+    
+## Button component
+
+![Alt](https://github.com/S-PRO/react-native-framework/blob/develop/src/Button/Button.png)
+
+#### example:
+```javascript
+import {ButtonStable,
+    ButtonAssertive,
+    ButtonBalanced,
+    ButtonCalm,
+    ButtonDark,
+    ButtonEnergized,
+    ButtonLight,
+    ButtonPositive,
+    ButtonRoyal} from '../src/Button/index'
+
+
+export default class TestButton extends Component{
+    constructor(props){
+        super(props);
+    }
+
+    render(){
+        return(
+            <View>
+                <ButtonStable>Button Stable</ButtonStable>
+                <ButtonAssertive>Assertive</ButtonAssertive>
+                <ButtonBalanced>Balanced</ButtonBalanced>
+                <ButtonCalm>Calm</ButtonCalm>
+                <ButtonDark>Dark</ButtonDark>
+                <ButtonEnergized>Energized</ButtonEnergized>
+                <ButtonLight>Light</ButtonLight>
+                <ButtonPositive>Positive</ButtonPositive>
+                <ButtonRoyal>Royal</ButtonRoyal>
+                <Button highlightStyles={{backgroundColor:'grey'}}>Button with only text</Button>
+            </View>
+        )
+    }
+}
+```
+
+#### API:
+    * `underlayColor` - color when button pressed,
+    * `textStyles` - custom user styles for text inside button (only <Text> component styling),
+    * `highlightStyles` - custom user style for button container (only <TouchableHighlight> component styling);
