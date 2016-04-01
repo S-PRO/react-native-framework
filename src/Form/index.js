@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
         padding:5
     },
     highlight:{
-        borderColor:'green',
-        borderWidth:1
+        borderColor:'lightblue',
+        borderWidth:2
     }
 });
 
