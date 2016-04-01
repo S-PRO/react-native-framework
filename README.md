@@ -57,3 +57,39 @@ class Application extends React.Component {
   }
 }
 </pre>
+
+
+
+
+## Header
+
+example:
+
+![Alt](https://github.com/S-PRO/react-native-framework/blob/develop/src/Header/Header.png)
+
+```javascript
+
+import React, { Component, StyleSheet, View, Text } from 'react-native';
+
+import Header from 'react-native-framework';
+
+
+export default class TestHeader extends Component{
+    render(){
+        return(
+            <View>
+                <Header styles={styles.header}>
+                    <Text>Welcome to React Native</Text>
+                </Header>
+
+            </View>
+        )
+    }
+}
+
+const styles = StyleSheet.create({
+    header:{
+        backgroundColor:'red'
+    }
+});
+```
