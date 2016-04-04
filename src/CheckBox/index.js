@@ -17,12 +17,14 @@ export default class CheckBox extends Component {
    markColor: React.PropTypes.string,
    onToggle: React.PropTypes.func.isRequired,
    labelPosition: React.PropTypes.oneOf(['right', 'left']),
+   lebelFontSize: React.PropTypes.number,
    styleCheckboxContainer: View.propTypes.style,
   };
 
   static defaultProps = {
     checked: false,
     size: 17,
+    labelFontSize: 12,
     outerColor: '#387ef5',
     markColor: '#fff',
     borderColor: '#ddd',
@@ -52,6 +54,9 @@ export default class CheckBox extends Component {
         borderWidth: 0.5,
         borderColor: props.borderColor,
         backgroundColor: props.markColor
+      },
+      checkBoxLabel: {
+        fontSize: props.labelFontSize
       }
     });
 
@@ -97,7 +102,7 @@ export default class CheckBox extends Component {
   _renderLabel(position) {
     var templ = (<View></View>);
     if ((this.props.children.length > 0) && (position === this.props.labelPosition)) {
-      templ = (<Text style={styles.checkBoxLabel}>{this.props.children}</Text>);
+      templ = (<Text style={[styles.checkBoxLabel, this.state.customStyle.checkBoxLabel]}>{this.props.children}</Text>);
     }
     return templ;
   }
@@ -105,15 +110,16 @@ export default class CheckBox extends Component {
 
 var styles = StyleSheet.create({
   checkBoxContainer: {
-    flexDirection: 'row',
-    alignItems: 'center'
+    flexDirection: 'row'
   },
   alignStyle: {
     justifyContent: 'center',
     alignItems: 'center'
   },
   checkBoxLabel: {
+    flex:1,
     marginLeft: 5,
-    marginRight: 5
+    marginRight: 5,
+    flexDirection: 'column'
   }
 });
