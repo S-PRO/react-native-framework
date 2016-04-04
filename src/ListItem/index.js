@@ -82,7 +82,7 @@ export default class ListItem extends Component {
     _renderRow(items) {
         var res = [];
         if (typeof items.length == 'undefined') {
-            res.push(items);
+            res.push(this._renderSideItem(items));
         } else {
             for (var i=0; i < items.length; i++) {
                 res.push(this._renderSideItem(items[i]));
