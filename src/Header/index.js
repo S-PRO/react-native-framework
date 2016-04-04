@@ -1,7 +1,4 @@
-import React, { Component, StyleSheet, View, Text } from 'react-native';
-
-import Dimensions from 'Dimensions';
-
+import React, { Component, StyleSheet, View, Text, Dimensions } from 'react-native';
 const width = Dimensions.get('window').width;
 
 export default class Header extends Component {

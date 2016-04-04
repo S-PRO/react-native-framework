@@ -1,6 +1,6 @@
 {
   "name": "react-native-ui-framework",
-  "version": "1.0.0",
+  "version": "0.0.4",
   "description": "custom react native UI framework",
   "main": "index.js",
   "directories": {
@@ -10,6 +10,11 @@
     "react-native-viewpager": "^0.2.1"
   },
   "devDependencies": {},
+  "peerDependencies": {
+    "react-native": "*",
+    "react-native-viewpager": "^0.2.1"
+
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

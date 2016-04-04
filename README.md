@@ -1,5 +1,11 @@
 # react-native-framework
 
+## How to install:
+
+```shell
+npm i react-native-ui-framework --save
+```
+
 ***
 
 ## Icons Component
