@@ -1,6 +1,6 @@
 'use strict';
 
-import React, { Component, StyleSheet, Text, TouchableHighlight, PropTypes} from 'react-native';
+import React, { Component, StyleSheet, Text, TouchableHighlight, View, PropTypes} from 'react-native';
 
 class Button extends Component{
     static propTypes = {
@@ -46,9 +46,10 @@ class Button extends Component{
     render(){
         return(
             <TouchableHighlight underlayColor={this.getUnderlayColor()}
-                                style={[this.getBackground(), styles.highlight, this.props.highlightStyles, this.props.disabled ? styles.buttonDisabled : false]}
                                 onPress={this.props.disabled ? null : this.props.onClick}>
-                {this.renderChild(this.props)}
+                <View style={[this.getBackground(), styles.highlight, this.props.highlightStyles, this.props.disabled ? styles.buttonDisabled : false]}>
+                    {this.renderChild(this.props)}
+                </View>
             </TouchableHighlight>
         )
     }
@@ -210,23 +211,18 @@ var styles = StyleSheet.create({
     },
     highlight:{
         flex:1,
-        alignItems:'center',
-        justifyContent:'center',
-        overflow:'hidden',
         borderWidth:1,
         borderRightWidth:0.5,
         borderLeftWidth:0.5,
         borderRadius:0.5,
-        paddingTop:10,
-        paddingBottom:10,
-        paddingLeft:20,
-        paddingRight:20,
         marginBottom:10
     },
     text:{
         fontSize:16,
         fontWeight:'700',
-        textAlign:'center'
+        textAlign:'center',
+        paddingTop:10,
+        paddingBottom:10
     },
     buttonDisabled:{
         opacity:0.1
