@@ -37,12 +37,12 @@ export default class Accordion extends Component {
 
         if (orderBy.length > 0) {
             for (let key in orderBy) {
-                if (Object.keys(dataSource[orderBy[key]]).length > 0)
+                if (typeof(dataSource[orderBy[key]]) !=='undefined')
                     results[orderBy[key]] = dataSource[orderBy[key]]
             }
         } else {
             for (let key in dataSource) {
-                if (Object.keys(dataSource[key]).length > 0)
+                if (typeof(dataSource[key]) !=='undefined')
                     results[key] = dataSource[key]
             }
         }
