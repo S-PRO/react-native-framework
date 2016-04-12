@@ -23,7 +23,9 @@ import { NotificationBox,
 import TabBar from './src/TabBar';
 import Select from './src/Select';
 import { Form, FormInput } from './src/Form';
+import Accordion from './src/Accordion';
 export {
+    Accordion,
     Button,
     ButtonStable,
     ButtonPositive,
