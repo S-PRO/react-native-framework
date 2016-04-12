@@ -36,19 +36,15 @@ export default class Accordion extends Component {
         const { dataSource, orderBy } = this.props;
 
         if (orderBy.length > 0) {
-            let sorting_results = [];
             for (let key in orderBy) {
                 if (Object.keys(dataSource[orderBy[key]]).length > 0)
-                    sorting_results[orderBy[key]] = dataSource[orderBy[key]]
+                    results[orderBy[key]] = dataSource[orderBy[key]]
             }
-            results = sorting_results;
         } else {
-            let sorting_results = [];
             for (let key in dataSource) {
                 if (Object.keys(dataSource[key]).length > 0)
-                    sorting_results[key] = dataSource[key]
+                    results[key] = dataSource[key]
             }
-            results = sorting_results;
         }
         return results;
     }
@@ -70,8 +66,8 @@ export default class Accordion extends Component {
                     key={generateHash()}
                     title={header}
                     items={childItems}
-                    headerStyles = {}
-                    headerTextStyles = {} />);
+                    headerStyles={this.props.headerStyles}
+                    headerTextStyles={this.props.headerTextStyles} />);
         }
         return result;
     }
