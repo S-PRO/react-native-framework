@@ -73,14 +73,15 @@ export default class Accordion extends Component {
     }
 
     render() {
+        const {isRefreshing, onRefresh, indicatorColor} = this.props;
         return (
             <ScrollView
                 refreshControl={
                     <RefreshControl
-                        refreshing={this.props.isRefreshing}
-                        onRefresh={this.props.onRefresh}
-                        tintColor={this.props.indicatorColor}
-                        colors={[this.props.indicatorColor]}
+                        refreshing={isRefreshing}
+                        onRefresh={onRefresh}
+                        tintColor={indicatorColor}
+                        colors={[indicatorColor]}
                     />}
             >
                 <View>
