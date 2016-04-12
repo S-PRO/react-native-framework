@@ -51,6 +51,10 @@ export default class ListItem extends Component {
         return (<View style={[styles.typeButton, item.props.usersStyles]}>{item}</View>)
     }
 
+    _renderCheckBox(item) {
+        return (<View style={[styles.typeCheckBox, item.props.usersStyles]}>{item}</View>)
+    }
+
     _renderNote(item) {
         return (<View style={styles.typeNote}>
                     <Text style={[this.state.defaultStyles.Note, item.props.usersStyles]}>{item}</Text>
@@ -73,6 +77,8 @@ export default class ListItem extends Component {
             return (<View key={hash} style={styles.Asset}>{this._renderThumbnail(item)}</View>);
         if (item.props.itemType == 'button')
             return (<View key={hash} style={styles.Asset}>{this._renderButton(item)}</View>);
+        if (item.props.itemType == 'checkbox')
+            return (<View key={hash} style={styles.mainColumn}>{this._renderCheckBox(item)}</View>);
         if (item.props.itemType == 'note')
             return (<View key={hash} style={styles.Asset}>{this._renderNote(item)}</View>);
         if (item.props.itemType == 'text')
@@ -82,7 +88,7 @@ export default class ListItem extends Component {
     _renderRow(items) {
         var res = [];
         if (typeof items.length == 'undefined') {
-            res.push(items);
+            res.push(this._renderSideItem(items));
         } else {
             for (var i=0; i < items.length; i++) {
                 res.push(this._renderSideItem(items[i]));
@@ -112,15 +118,20 @@ var styles = StyleSheet.create({
     },
     Asset: {
         margin: 10,
+        marginRight: 0,
         alignSelf: 'center',
         alignItems: 'center'
     },
     mainColumn: {
         flex: 1,
+        overflow: 'hidden',
         flexDirection: 'column',
         alignSelf: 'center'
     },
     typeText: {
+        margin: 10
+    },
+    typeCheckBox: {
         margin: 10
     },
     typeIcon: {
@@ -138,5 +149,9 @@ var styles = StyleSheet.create({
     },
     typeButton: {
         width: 70
+    },
+    typeNote: {
+        marginRight: 10,
+        alignSelf: 'flex-end'
     }
 });
