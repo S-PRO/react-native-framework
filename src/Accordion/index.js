@@ -145,7 +145,6 @@ var styles = StyleSheet.create({
     },
     Row: {
         flexDirection: 'column',
-        paddingVertical: 20
     },
     HiddenRow: {
         height: 0,
