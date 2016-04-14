@@ -1,31 +1,6 @@
 'use strict';
 
-import React, { Component, View, StyleSheet, Text, TextInput, Switch } from 'react-native';
-
-const styles = StyleSheet.create({
-    form:{
-        flex:1,
-        padding:10,
-        borderColor: 'grey',
-        borderWidth: 1,
-        marginTop:200,
-        marginLeft:20,
-        marginRight:20
-    },
-    input:{
-        marginTop:10,
-        height:30,
-        borderWidth:1,
-        borderColor:'#ddd',
-        borderRadius:2,
-        padding:5
-    },
-    highlight:{
-        borderColor:'lightblue',
-        borderWidth:2
-    }
-});
-
+import React, { Component, View, StyleSheet, TextInput } from 'react-native';
 
 /**
  * FormInput props:
@@ -39,26 +14,30 @@ class FormInput extends Component{
             value:props.value
         }
     }
-    focus(){
+
+    static propTypes = TextInput.propTypes;
+
+    _focus(){
         this.setState({highlight:true})
     }
-    blur(){
+    _blur(){
         this.setState({highlight:false})
     }
-    onTextChange(text){
+    _onChangeText(text){
         this.setState({value:text});
-        this.props.textChanged(text);
     }
     render(){
+        const commonProps = {
+            ...this.props,
+            key: this.props.key,
+            value: this.state.value,
+            onBlur: this._blur.bind(this),
+            onFocus: this._focus.bind(this),
+            onChangeText: this._onChangeText.bind(this),
+            style: [styles.input, this.props.style, this.state.highlight ? styles.highlight : {}]
+        };
         return(
-            <TextInput
-                onBlur={this.blur.bind(this)}
-                onFocus={this.focus.bind(this)}
-                value={this.state.value}
-                onChangeText={this.onTextChange.bind(this)}
-                key={this.props.key}
-                style={[styles.input, this.props.styles, this.state.highlight ? styles.highlight : {}]}
-                keyboardType="default"/>
+            <TextInput {...commonProps} />
         )
 
     }
@@ -77,6 +56,27 @@ class Form extends Component{
         )
     }
 }
+
+const styles = StyleSheet.create({
+    form:{
+        flex:1,
+        padding:10,
+        marginLeft:20,
+        marginRight:20
+    },
+    input:{
+        marginTop:10,
+        height:30,
+        borderWidth:1,
+        borderColor:'#ddd',
+        borderRadius:2,
+        padding:5
+    },
+    highlight:{
+        borderColor:'lightblue',
+        borderWidth:2
+    }
+});
 
 export {
     Form,
