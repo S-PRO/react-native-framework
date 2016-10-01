@@ -1,4 +1,5 @@
-import React, { Component, StyleSheet, View, Text, Dimensions } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, View, Text, Dimensions } from 'react-native';
 const width = Dimensions.get('window').width;
 export default class Footer extends Component {
     constructor(props){
